@@ -1,18 +1,56 @@
 /* ==========================================================================
+ Colors
+========================================================================== */
+html {
+	--color-navy: 			#0c045e;
+	--color-navy-light: 	#30548a;
+	--color-carrot: 		#e19819;
+	--color-carrot-light: 	#ebb36c;
+	--color-dark-green: 	#1c331d;
+	--color-beige: 			#EEF5DB;
+	--color-gold: 			#ffd700;
+	--color-gold-light: 	#ffdc73;
+	--color-black: 			#1f2d3d;
+	--color-silver:			#8492a6;
+	--color-slate:			#3c4858;
+	--color-snow:			#f9fafc;
+	--color-prim-text:		#1f2d3d;
+	--color-sec-text:		#3c4858;
+	--color-dis-text:		#f9fafc;
+}
+
+/* ==========================================================================
  Typography
 ========================================================================== */
 
+html {
+	--font-prim-headings: 		Montserrat, sans-serif;
+	--font-sec-body: 			Source Sans Pro, sans-serif;
+}
+
 h1, h2, h3, h4 {
-	color: #1f2d3d;
+	color: var(--color-prim-text);
+	font-family: var(--font-prim-headings);
+}
+body {
+	color: var(--color-sec-text);
+	font-family: var(--font-sec-body);
+	line-height: 1.6;
 }
 
 a {
-	color: #e19819;
+	color: var(--color-carrot);
 	text-decoration: none;
 }
 
 a:hover {
-	color: #c6c235;
+	color: var(--color-gold-light);
+}
+#hover {
+	color: var(--color-gold-light);
+}
+#quote {
+	font-style: italic;
 }
 
 /* ==========================================================================
@@ -20,30 +58,42 @@ a:hover {
 ========================================================================== */
 
 header {
-	background-color: #0c045e;
+	background-color: var(--color-navy);
 	padding: 2rem;
 }
 
 header h1 {
-	color: #f9fafc;
+	color: var(--color-dis-text);
+	font-family: var(--font-prim-headings);
 }
 
 /** Navigation **/
-
 nav li {
 	display: inline-block;
-	font-size: 20px;
-	list-style-type: none;
-	margin: auto;
-	padding: 20px;
-	text-align: center;
+		font-size: 1.2em;
+		list-style-type: none;
+		margin: auto;
+		padding: 1.4rem;
+		text-align: center;
 }
+  @media (max-width: 768px) {
+    nav li { 
+	    display: inline-block;
+		font-size: 1.4em;
+		list-style-type: none;
+		margin: auto;
+		padding: 1.4rem;
+		text-align: center;
+    }
+  }
 
 /* ==========================================================================
  Main Component
 ========================================================================== */
 
 main {
+	margin: auto;
+	max-width: 800px;
 	padding: 2rem;
 }
 
@@ -52,6 +102,6 @@ main {
 ========================================================================== */
 
 footer {
-	background-color: #6e7d6f;
+	background-color: var(--color-beige);
 	padding: 2rem;
 }
