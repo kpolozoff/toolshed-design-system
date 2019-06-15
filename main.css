@@ -2,12 +2,12 @@
  Colors
 ========================================================================== */
 html {
-	--color-navy: 			#0c045e;
-	--color-navy-light: 	#30548a;
+	--color-green-dark: 	#1c331d;
+	--color-green-light: 	#EEF5DB;
 	--color-carrot: 		#e19819;
 	--color-carrot-light: 	#ebb36c;
-	--color-dark-green: 	#1c331d;
-	--color-beige: 			#EEF5DB;
+	--color-navy: 			#0c045e;
+	--color-navy-light: 	#30548a;
 	--color-gold: 			#ffd700;
 	--color-gold-light: 	#ffdc73;
 	--color-black: 			#1f2d3d;
@@ -25,17 +25,78 @@ html {
 
 html {
 	--font-prim-headings: 		Montserrat, sans-serif;
-	--font-sec-body: 			Source Sans Pro, sans-serif;
+	--font-sec-body: 			'Source Sans Pro', sans-serif;
+
+	--ratio: 1.067;
+
+	--size-5up: calc( var(--size-4up) * var(--ratio));
+	--size-4up: calc( var(--size-3up) * var(--ratio));
+	--size-3up: calc( var(--size-2up) * var(--ratio));
+	--size-2up: calc( var(--size-1up) * var(--ratio));
+	--size-1up: calc( 1rem * var(--ratio));
+	--size-1down: calc( 1rem / 1.1);
+
+	--size-featured: ;
 }
 
 h1, h2, h3, h4 {
 	color: var(--color-prim-text);
 	font-family: var(--font-prim-headings);
 }
+h1 {
+	font-size: var(--size-5up);
+}
+
+h2 {
+	font-size: var(--size-4up);
+}
+
+h3 {
+	font-size: var(--size-3up);
+}
+
+h4 {
+	font-size: var(--size-2up);
+}
+
+h5 {
+	font-size: var(--size-1up);
+}
+
+h6 {
+	font-size: var(--size-1down);
+}
+
 body {
 	color: var(--color-sec-text);
 	font-family: var(--font-sec-body);
 	line-height: 1.6;
+}
+
+@media (min-width: 480px) {
+	body {
+		font-size: var(--size-2up);
+	}
+}
+
+@media (min-width: 800px) {
+	body {
+		font-size: var(--size-3up);
+	}
+}
+@media (min-width: 1200px) {
+	body {
+		font-size: var(--size-4up);
+	}
+}
+
+.featured {
+	font-size: var(--size-2up);
+	line-height: 2;
+}
+
+.tertiary {
+	font-size: var(--size-1down);
 }
 
 a {
@@ -46,11 +107,27 @@ a {
 a:hover {
 	color: var(--color-gold-light);
 }
-#hover {
-	color: var(--color-gold-light);
-}
-#quote {
+
+q {
 	font-style: italic;
+}
+
+ul li {
+	list-style-position: inside;
+}
+
+ol li {
+	list-style: upper-roman;
+	list-style-position: inside;
+}
+
+blockquote {
+	font-style: italic;
+	line-height: 1.8;
+}
+
+cite {
+	font-style: normal;
 }
 
 /* ==========================================================================
@@ -58,31 +135,52 @@ a:hover {
 ========================================================================== */
 
 header {
-	background-color: var(--color-navy);
+	background-color: var(--color-green-dark);
 	padding: 2rem;
 }
 
 header h1 {
 	color: var(--color-dis-text);
 	font-family: var(--font-prim-headings);
+	text-shadow: 1px 1px 2px #ccc;
 }
 
 /** Navigation **/
 nav li {
-	display: inline-block;
-		font-size: 1.2em;
-		list-style-type: none;
-		margin: auto;
-		padding: 1.4rem;
-		text-align: center;
+	font-size: 1.2rem;
+	list-style-type: none;
+	margin: auto;
+	padding: 1.5em;
+	text-align: left;
 }
-  @media (max-width: 768px) {
+
+  @media (min-width: 480px) {
     nav li { 
-	    display: inline-block;
-		font-size: 1.4em;
+    	display: inline-block;
+		font-size: 1.4rem;
 		list-style-type: none;
 		margin: auto;
-		padding: 1.4rem;
+		padding: 1.4em;
+		text-align: left;
+    }
+
+   @media (min-width: 800px) {
+    nav li { 
+    	display: inline-block;
+		font-size: 1.4rem;
+		list-style-type: none;
+		margin: auto;
+		padding: 1.4em;
+		text-align: center;
+    }
+
+    @media (min-width: 1200px) {
+    nav li { 
+    	display: inline-block;
+		font-size: 1.4rem;
+		list-style-type: none;
+		margin: auto;
+		padding: 1.4em;
 		text-align: center;
     }
   }
@@ -102,6 +200,22 @@ main {
 ========================================================================== */
 
 footer {
-	background-color: var(--color-beige);
+	background-color: var(--color-green-light);
 	padding: 2rem;
+}
+
+@media (min-width: 480px) {
+	body footer {
+		background-color: var(--color-green-light);
+	}
+}
+
+/* ==========================================================================
+ Examples Component
+========================================================================== */
+.link-hover-example {
+	color: var(--color-gold-light);
+}
+#quote {
+	font-style: italic;
 }
