@@ -8,7 +8,7 @@
 
 	<title>Components</title>
 	<link rel="stylesheet" href="main.css">
-	<link href="https://fonts.googleapis.com/css?family=Montserrat:400i,700|Source+Sans+Pro:400,400i,700&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Merriweather:400,400i|Source+Sans+Pro:400,400i,700&display=swap&subset=latin-ext" rel="stylesheet">
 
 	<!--Additional elements for browsers and robots go here goes here-->
 
@@ -18,7 +18,7 @@
 	<!--Elements visible to users go here-->
 	<header>
 		<!--Logo-->
-		<h1>Toolshed Design System</h1>
+		<h1>Toolshed Design System Components</h1>
 
 		<!--Nav-->
 		<nav>
@@ -34,6 +34,64 @@
 	<main>
 		<h2>Toolshed Design System Components</h2>
 
+		<h3>Button Links</h3>
+
+		<figure>
+			<h4>Hero Buttons</h4>
+			<a href="components.html" class="link-button link-button-hero">I'm a hero button!</a>
+			<a href="components.html" class="link-button-var link-button-hero">I'm a hero button variation!</a>
+		</figure>
+
+		<figure>
+			<h4>Main Buttons</h4>
+			<a href="components.html" class="link-button">I'm the main button!</a>
+			<a href="components.html" class="link-button-var">I'm the main button variation!</a>
+		</figure>
+
+		<figure>
+			<h4>Tertiary Buttons</h4>
+			<a href="components.html" class="link-button link-button-tertiary">I'm a tertiary button!</a>
+			<a href="components.html" class="link-button-var link-button-tertiary tertiary-button-example">I'm a tertiary button variation!</a>
+		</figure>
+		
+
+		<h3>Accordions</h3>
+
+		<figure>
+			<details>
+				<summary>Here's the first row of the toolshed accordion</summary>
+				<div>
+					<p>Help, I'm stuck in an accordion!</p>
+				</div>
+			</details>
+
+			<details>
+				<summary>And here's the second row</summary>
+				<div>
+					<p>Get me out of here!</p>
+				</div>
+			</details>
+
+			<details>
+				<summary>And here's the third row!</summary>
+				<div>
+					<p>Oh nooooooooooo!</p>
+				</div>
+			</details>
+		</figure>
+
+		<h3>Modal Dialog</h3>
+
+		<figure>
+			<button id="open-modal" type="button">Open Modal</button>
+
+			<dialog id="modal-demo">
+				<h2>Some Text</h2>
+
+				<p>Some more text.</p>
+			</dialog>
+		</figure>
+
 	</main>
 
 	<footer>
@@ -44,6 +102,26 @@
 		</ul>
 		<p>©2019 Kristi Polozoff, All rights reserved.</p>
 	</footer>
+
+
+	<script>
+		document.addEventListener('DOMContentLoaded', function(){
+
+		const modal = document.querySelector('dialog');
+		const open = document.getElementById('open-modal');
+
+		open.addEventListener('click', () => {
+			modal.showModal();
+		});
+
+		modal.addEventListener('click', event => {
+			if (event.target === modal) {
+				modal.close('cancelled');
+			}
+		});
+
+		});
+	</script>
 
 </body>
 

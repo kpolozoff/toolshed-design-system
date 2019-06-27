@@ -24,7 +24,7 @@ html {
 ========================================================================== */
 
 html {
-	--font-prim-headings: 		Montserrat, sans-serif;
+	--font-prim-headings: 		Merriweather, serif;
 	--font-sec-body: 			'Source Sans Pro', sans-serif;
 
 	--ratio: 1.067;
@@ -36,10 +36,12 @@ html {
 	--size-1up: calc( 1rem * var(--ratio));
 	--size-1down: calc( 1rem / 1.1);
 
-	--size-featured: ;
+	color: var(--color-sec-text);
+	font-family: var(--font-sec-body);
+	line-height: 1.6;
 }
 
-h1, h2, h3, h4 {
+h1, h2, h3, h4, h5, h6 {
 	color: var(--color-prim-text);
 	font-family: var(--font-prim-headings);
 }
@@ -68,34 +70,32 @@ h6 {
 }
 
 body {
-	color: var(--color-sec-text);
-	font-family: var(--font-sec-body);
-	line-height: 1.6;
+	
 }
 
 @media (min-width: 480px) {
-	body {
+	html {
 		font-size: var(--size-2up);
 	}
 }
 
 @media (min-width: 800px) {
-	body {
+	html {
 		font-size: var(--size-3up);
 	}
 }
 @media (min-width: 1200px) {
-	body {
+	html {
 		font-size: var(--size-4up);
 	}
 }
 
-.featured {
+.featured-body-text {
 	font-size: var(--size-2up);
 	line-height: 2;
 }
 
-.tertiary {
+.tertiary-body-text {
 	font-size: var(--size-1down);
 }
 
@@ -104,8 +104,20 @@ a {
 	text-decoration: none;
 }
 
+/*a:visited {
+	color: var(--color-green-light);
+}*/
+
 a:hover {
 	color: var(--color-gold-light);
+}
+
+a:active {
+	color: var(--color-gold-light);
+}
+
+a:focus {
+	color: var(--color-navy-light);
 }
 
 q {
@@ -127,7 +139,9 @@ blockquote {
 }
 
 cite {
+	font-size: var(--size-1down);
 	font-style: normal;
+	text-decoration: underline;
 }
 
 /* ==========================================================================
@@ -142,7 +156,51 @@ header {
 header h1 {
 	color: var(--color-dis-text);
 	font-family: var(--font-prim-headings);
-	text-shadow: 1px 1px 2px #ccc;
+	text-shadow: 2px 2px 2px #000;
+}
+
+header h1:hover {
+	animation: shake 0.82s cubic-bezier(.36,.07,.19,.97) both;
+	animation-iteration-count: infinite;
+	animation-timing-function: linear;
+  	backface-visibility: hidden;
+  	perspective: 1000px;
+  	transform: translate3d(0, 0, 0);
+}
+
+@keyframes shake {
+	0% { 
+		transform: translate(2px, 1px) rotate(0deg); 
+	}
+	10% { 
+		transform: translate(-1px, -2px) rotate(-1deg); 
+	}
+	20% { 
+		transform: translate(-3px, 0px) rotate(1deg); 
+	}
+	30% { 
+		transform: translate(0px, 2px) rotate(0deg); 
+	}
+	40% { 
+		transform: translate(1px, -1px) rotate(1deg); 
+	}
+	50% { 
+		transform: translate(-1px, 2px) rotate(-1deg); 
+	}
+	60% { 
+		transform: translate(-3px, 1px) rotate(0deg); 
+	}
+	70% { 
+		transform: translate(2px, 1px) rotate(-1deg); 
+	}
+	80% { 
+		transform: translate(-1px, -1px) rotate(1deg); 
+	}
+	90% { 
+		transform: translate(2px, 2px) rotate(0deg); }
+	100% { 
+		transform: translate(1px, -2px) rotate(-1deg); 
+	}
 }
 
 /** Navigation **/
@@ -154,39 +212,23 @@ nav li {
 	text-align: left;
 }
 
-  @media (min-width: 480px) {
+@media (min-width: 480px) {
     nav li { 
     	display: inline-block;
 		font-size: 1.4rem;
-		list-style-type: none;
-		margin: auto;
 		padding: 1.4em;
 		text-align: left;
     }
+}
 
-   @media (min-width: 800px) {
+@media (min-width: 800px) {
     nav li { 
-    	display: inline-block;
-		font-size: 1.4rem;
-		list-style-type: none;
-		margin: auto;
-		padding: 1.4em;
 		text-align: center;
     }
-
-    @media (min-width: 1200px) {
-    nav li { 
-    	display: inline-block;
-		font-size: 1.4rem;
-		list-style-type: none;
-		margin: auto;
-		padding: 1.4em;
-		text-align: center;
-    }
-  }
+}
 
 /* ==========================================================================
- Main Component
+Page Layout
 ========================================================================== */
 
 main {
@@ -196,6 +238,187 @@ main {
 }
 
 /* ==========================================================================
+Button links
+========================================================================== */
+.link-button {
+	background-color: var(--color-navy-light);
+	border-radius: .75em 0 .75em 0;
+	box-shadow: 4px 4px rgba(0,0,0, .3);
+	color: var(--color-dis-text);
+	display: inline-block;
+	margin: 1rem;
+	padding: 1rem;
+	transition: all .5s;
+}
+
+.link-button:hover, .link-button:focus  {
+	border-radius: 0;
+	outline: none;
+	transform: scale(1.2);
+	transition: all 1s cubic-bezier(0.030, 0.860, 0.925. 0.125);
+}
+
+.link-button:active {
+	box-shadow: 8px 8px rgba(0,0,0, .3) inset;
+}
+
+.link-button-var {
+	background-color: var(--color-green-light);
+	border-radius: .75em 0 .75em 0;
+	box-shadow: 4px 4px rgba(0,0,0, .3);
+	color: var(--color-sec-text);
+	display: inline-block;
+	margin: 1rem;
+	padding: 1rem;
+	transition: all .5s;
+}
+
+.link-button-var:hover, .link-button-var:focus  {
+	background-color: var(--color-green-light);
+	border-radius: 0;
+	color: var(--color-sec-text);
+	outline: none;
+	transform: scale(1.2);
+	transition: all 1s cubic-bezier(0.030, 0.860, 0.925. 0.125);
+}
+
+.link-button-var:active {
+	box-shadow: 6px 6px rgba(0,0,0, .3) inset;
+}
+
+.link-button-hero {
+	font-size: 1.2rem;
+	padding: 1.7rem;
+}
+
+.link-button-tertiary {
+	background-color: transparent;
+	border: 3px solid;
+	color: var(--color-navy-light);
+}
+
+/* ==========================================================================
+Accordions + Dialogs
+========================================================================== */
+
+details {
+	border: 1px solid var(--color-navy);
+	margin: 1rem 0;
+}
+
+summary {
+	background-color: var(--color-navy);
+	color: var(--color-snow);
+	font-size: 1.2rem;
+	padding: .5rem;
+}
+
+summary::-webkit-details-marker {
+	background: url(img/hammer.svg);
+	background-repeat: no-repeat;
+	color: transparent;
+	transition: all .5s;
+}
+
+details[open] summary::-webkit-details-marker {
+	transform: rotate(45deg);
+	transition: all .2s;
+}
+
+summary:focus {
+	outline: none;
+}
+
+details div {
+	padding: 1rem;
+}
+
+dialog {
+	background-color: var(--color-snow);
+	border-right: none;
+	border-bottom: none;
+	border-left: none;	
+	border-radius: .35rem;
+	border-top-color: var(--color-carrot-light);
+	box-shadow: 3px 3px 10px var(--color-slate);
+	min-height: 25rem;
+	min-width: 25rem;
+	max-width: 90%;
+	padding-top: 10%;
+	text-align: center;
+}
+
+dialog::backdrop {
+	background-color: rgba(12, 4, 94, .9);
+	background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='52' height='52' viewBox='0 0 52 52'%3E%3Cpath fill='%2330548a' fill-opacity='0.6' d='M0 17.83V0h17.83a3 3 0 0 1-5.66 2H5.9A5 5 0 0 1 2 5.9v6.27a3 3 0 0 1-2 5.66zm0 18.34a3 3 0 0 1 2 5.66v6.27A5 5 0 0 1 5.9 52h6.27a3 3 0 0 1 5.66 0H0V36.17zM36.17 52a3 3 0 0 1 5.66 0h6.27a5 5 0 0 1 3.9-3.9v-6.27a3 3 0 0 1 0-5.66V52H36.17zM0 31.93v-9.78a5 5 0 0 1 3.8.72l4.43-4.43a3 3 0 1 1 1.42 1.41L5.2 24.28a5 5 0 0 1 0 5.52l4.44 4.43a3 3 0 1 1-1.42 1.42L3.8 31.2a5 5 0 0 1-3.8.72zm52-14.1a3 3 0 0 1 0-5.66V5.9A5 5 0 0 1 48.1 2h-6.27a3 3 0 0 1-5.66-2H52v17.83zm0 14.1a4.97 4.97 0 0 1-1.72-.72l-4.43 4.44a3 3 0 1 1-1.41-1.42l4.43-4.43a5 5 0 0 1 0-5.52l-4.43-4.43a3 3 0 1 1 1.41-1.41l4.43 4.43c.53-.35 1.12-.6 1.72-.72v9.78zM22.15 0h9.78a5 5 0 0 1-.72 3.8l4.44 4.43a3 3 0 1 1-1.42 1.42L29.8 5.2a5 5 0 0 1-5.52 0l-4.43 4.44a3 3 0 1 1-1.41-1.42l4.43-4.43a5 5 0 0 1-.72-3.8zm0 52c.13-.6.37-1.19.72-1.72l-4.43-4.43a3 3 0 1 1 1.41-1.41l4.43 4.43a5 5 0 0 1 5.52 0l4.43-4.43a3 3 0 1 1 1.42 1.41l-4.44 4.43c.36.53.6 1.12.72 1.72h-9.78zm9.75-24a5 5 0 0 1-3.9 3.9v6.27a3 3 0 1 1-2 0V31.9a5 5 0 0 1-3.9-3.9h-6.27a3 3 0 1 1 0-2h6.27a5 5 0 0 1 3.9-3.9v-6.27a3 3 0 1 1 2 0v6.27a5 5 0 0 1 3.9 3.9h6.27a3 3 0 1 1 0 2H31.9z'%3E%3C/path%3E%3C/svg%3E");
+}
+
+dialog[open] {
+	animation: expand-in .9s ease-out .5s;
+	animation-fill-mode: forwards;
+	opacity: 0;
+	transform: scalex(0);
+}
+
+dialog[open]::backdrop {
+	animation: fade-in 1s;
+}
+
+@keyframes expand-in {
+	
+	0% {
+		opacity: 0;
+		transform: scalex(0);
+	}
+	
+	70% {
+		transform: scalex(1.1);
+	}
+	
+	100% {
+		opacity: .9;
+		transform: scalex(1);
+	}
+	
+}
+
+@keyframes fade-in {
+	
+	from {
+		opacity: 0;
+	}
+	
+	to {
+		opacity: .9;
+	}	
+
+}
+
+dialog h2 {
+	animation: bounce .8s ease-out infinite alternate;
+}
+
+dialog p:hover {
+	animation: bounce .8s ease-out infinite alternate;
+}
+
+@-webkit-keyframes bounce {
+  100% {
+    top: 110px;
+    text-shadow: 0 1px 0 #ccc,
+               0 2px 0 #ccc,
+               0 3px 0 #ccc,
+               0 4px 0 #ccc,
+               0 5px 0 #ccc,
+               0 6px 0 #ccc,
+               0 7px 0 #ccc,
+               0 8px 0 #ccc,
+               0 9px 0 #ccc,
+               0 30px 30px rgba(0, 0, 0, .6);
+  }
+  
+}
+/* ==========================================================================
  Footer Component
 ========================================================================== */
 
@@ -204,18 +427,23 @@ footer {
 	padding: 2rem;
 }
 
-@media (min-width: 480px) {
-	body footer {
-		background-color: var(--color-green-light);
-	}
-}
-
 /* ==========================================================================
- Examples Component
+ Examples
 ========================================================================== */
+.link-visited-example {
+	color: var(--color-green-light);
+}
 .link-hover-example {
 	color: var(--color-gold-light);
 }
-#quote {
-	font-style: italic;
+.link-active-example {
+	color: var(--color-gold-light);
+}
+.link-focus-example {
+	color: var(--color-carrot-light);
+}
+.tertiary-button-example {
+	background-color: transparent;
+	border: 3px solid;
+	color: var(--color-green-light);
 }
