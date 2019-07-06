@@ -16,7 +16,11 @@ html {
 	--color-snow:			#f9fafc;
 	--color-prim-text:		#1f2d3d;
 	--color-sec-text:		#3c4858;
-	--color-dis-text:		#f9fafc;
+	--color-dis-text:		#3c4858;
+	--color-oncolor-text:	#f9fafc;
+
+	--box-shadow:			4px 4px rgba(0,0,0, .3);
+	--box-shadow-inset:		10px 10px rgba(0,0,0, .3) inset;
 }
 
 /* ==========================================================================
@@ -70,10 +74,10 @@ h6 {
 }
 
 body {
-	
+	margin: 0;
 }
 
-@media (min-width: 480px) {
+@media (min-width: 600px) {
 	html {
 		font-size: var(--size-2up);
 	}
@@ -154,53 +158,9 @@ header {
 }
 
 header h1 {
-	color: var(--color-dis-text);
+	color: var(--color-oncolor-text);
 	font-family: var(--font-prim-headings);
 	text-shadow: 2px 2px 2px #000;
-}
-
-header h1:hover {
-	animation: shake 0.82s cubic-bezier(.36,.07,.19,.97) both;
-	animation-iteration-count: infinite;
-	animation-timing-function: linear;
-  	backface-visibility: hidden;
-  	perspective: 1000px;
-  	transform: translate3d(0, 0, 0);
-}
-
-@keyframes shake {
-	0% { 
-		transform: translate(2px, 1px) rotate(0deg); 
-	}
-	10% { 
-		transform: translate(-1px, -2px) rotate(-1deg); 
-	}
-	20% { 
-		transform: translate(-3px, 0px) rotate(1deg); 
-	}
-	30% { 
-		transform: translate(0px, 2px) rotate(0deg); 
-	}
-	40% { 
-		transform: translate(1px, -1px) rotate(1deg); 
-	}
-	50% { 
-		transform: translate(-1px, 2px) rotate(-1deg); 
-	}
-	60% { 
-		transform: translate(-3px, 1px) rotate(0deg); 
-	}
-	70% { 
-		transform: translate(2px, 1px) rotate(-1deg); 
-	}
-	80% { 
-		transform: translate(-1px, -1px) rotate(1deg); 
-	}
-	90% { 
-		transform: translate(2px, 2px) rotate(0deg); }
-	100% { 
-		transform: translate(1px, -2px) rotate(-1deg); 
-	}
 }
 
 /** Navigation **/
@@ -212,7 +172,7 @@ nav li {
 	text-align: left;
 }
 
-@media (min-width: 480px) {
+@media (min-width: 600px) {
     nav li { 
     	display: inline-block;
 		font-size: 1.4rem;
@@ -242,48 +202,48 @@ Button links
 ========================================================================== */
 .link-button {
 	background-color: var(--color-navy-light);
-	border-radius: .75em 0 .75em 0;
-	box-shadow: 4px 4px rgba(0,0,0, .3);
-	color: var(--color-dis-text);
+	border-radius: .15em;
+	box-shadow: var(--box-shadow);
+	color: var(--color-oncolor-text);
 	display: inline-block;
 	margin: 1rem;
 	padding: 1rem;
-	transition: all .5s;
+	transition: all .5s ease-out;
 }
 
 .link-button:hover, .link-button:focus  {
+	background: var(--color-navy);
 	border-radius: 0;
+	color: var(--color-oncolor-text);
 	outline: none;
 	transform: scale(1.2);
-	transition: all 1s cubic-bezier(0.030, 0.860, 0.925. 0.125);
 }
 
 .link-button:active {
-	box-shadow: 8px 8px rgba(0,0,0, .3) inset;
+	box-shadow: var(--box-shadow-inset);
 }
 
 .link-button-var {
 	background-color: var(--color-green-light);
-	border-radius: .75em 0 .75em 0;
-	box-shadow: 4px 4px rgba(0,0,0, .3);
+	border-radius: .15em;
+	box-shadow: var(--box-shadow);
 	color: var(--color-sec-text);
 	display: inline-block;
 	margin: 1rem;
 	padding: 1rem;
-	transition: all .5s;
+	transition: all .5s ease-out;
 }
 
 .link-button-var:hover, .link-button-var:focus  {
-	background-color: var(--color-green-light);
+	background-color: var(--color-green-dark);
 	border-radius: 0;
-	color: var(--color-sec-text);
+	color: var(--color-oncolor-text);
 	outline: none;
 	transform: scale(1.2);
-	transition: all 1s cubic-bezier(0.030, 0.860, 0.925. 0.125);
 }
 
 .link-button-var:active {
-	box-shadow: 6px 6px rgba(0,0,0, .3) inset;
+	box-shadow: var(--box-shadow-inset);
 }
 
 .link-button-hero {
@@ -298,7 +258,7 @@ Button links
 }
 
 /* ==========================================================================
-Accordions + Dialogs
+Accordions
 ========================================================================== */
 
 details {
@@ -332,6 +292,9 @@ summary:focus {
 details div {
 	padding: 1rem;
 }
+/* ==========================================================================
+Dialogs
+========================================================================== */
 
 dialog {
 	background-color: var(--color-snow);
@@ -342,9 +305,14 @@ dialog {
 	border-top-color: var(--color-carrot-light);
 	box-shadow: 3px 3px 10px var(--color-slate);
 	min-height: 25rem;
-	min-width: 25rem;
-	max-width: 90%;
+	max-width: 80%;
 	padding-top: 10%;
+	text-align: center;
+}
+
+dialog p {
+	display: inline-block;
+	max-width: 75%;
 	text-align: center;
 }
 
@@ -398,11 +366,7 @@ dialog h2 {
 	animation: bounce .8s ease-out infinite alternate;
 }
 
-dialog p:hover {
-	animation: bounce .8s ease-out infinite alternate;
-}
-
-@-webkit-keyframes bounce {
+@keyframes bounce {
   100% {
     top: 110px;
     text-shadow: 0 1px 0 #ccc,
@@ -418,6 +382,97 @@ dialog p:hover {
   }
   
 }
+/* ==========================================================================
+Forms
+========================================================================== */
+form {
+	background-color: var(--color-snow);
+	border-radius: .15em;
+	padding: 1rem;
+}
+
+form label, form input, form textarea, select {
+	display: block;
+}
+
+input, textarea, select {
+	border: 2px solid var(--color-navy-light);
+	border-radius: .15em;
+	color: var(--color-navy-light);
+	font-size: var(--size-1down);
+	margin-bottom: 1rem;
+	padding: .5rem;
+}
+
+input:not([type="submit"]), textarea {
+	min-width: 70%;
+}
+
+textarea {
+	min-height: 5rem;
+}
+
+input:focus, textarea:focus, select:focus {
+	box-shadow: var(--box-shadow);
+	outline: none;
+}
+
+select {
+	--webkit-appearance: none;
+}
+
+.error {
+	border: 2px solid red;
+	margin-bottom: 0;
+}
+
+.error-text {
+	color: red;
+	margin: 0 0 1rem 0;
+}
+
+input[disabled] {
+	background-color: var(--color-silver);
+	border-color: var(--color-slate);
+	cursor: not-allowed;
+}
+
+textarea[disabled] {
+	background-color: var(--color-silver);
+	border-color: var(--color-slate);
+	cursor: not-allowed;
+}
+
+select[disabled] {
+	background-color: var(--color-silver);
+	border-color: var(--color-slate);
+	color: var(--color-dis-text);
+	cursor: not-allowed;
+}
+
+input[type="submit"] {
+  background: var(--color-navy-light);
+  border: solid var(--color-navy);
+  border-radius: 0.15em;
+  border-width: 0 0 0.15em;
+  color: var(--color-oncolor-text);
+  cursor: pointer;
+  font-size: var(--size-1up);
+  padding: 0.2em 0.4em;
+  transition: all 0.15s ease;
+}
+
+input[type="submit"]:hover {
+  border-width: 0 0 0.1em;
+  margin-top: 0.05em;
+}
+
+input[type="submit"]:active {
+  border-width: 0 0 0em;
+  margin-top: 0.15em;
+}
+	
+
 /* ==========================================================================
  Footer Component
 ========================================================================== */
