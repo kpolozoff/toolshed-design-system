@@ -9,6 +9,8 @@
 	<title>Components</title>
 	<link rel="stylesheet" href="main.css">
 	<link href="https://fonts.googleapis.com/css?family=Merriweather:400,400i|Source+Sans+Pro:400,400i,700&display=swap&subset=latin-ext" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
 
 	<!--Additional elements for browsers and robots go here goes here-->
 
@@ -95,7 +97,7 @@
 		<h3>Form Inputs</h3>
 
 		<figure>
-			<form class="form">
+			<form>
 				
 				<h4>Text form field</h4>
 
@@ -128,13 +130,13 @@
 				<label for="form-select">Select Dropdown</label>
 				<select id="form-select" name="select">
 					<option disabled hidden selected>Please Select</option>
-					<option value="">
+					<option>
 						Option 1
 					</option>
-					<option value="">
+					<option>
 						Option 2
 					</option>
-					<option value="">
+					<option>
 						Option 3
 					</option>
 				</select>
@@ -171,9 +173,63 @@
 
 				<h4>Submit Button</h4>
 
-				<input type="submit" name="submit" value="Submit">
+				<input type="submit">
 
 			</form>
+
+		</figure>
+
+		<h4>Information Cards</h4>
+
+		<figure>
+			<h3>Article</h3>
+
+			<section class="article">
+
+				<img src="https://hips.hearstapps.com/digitalspyuk.cdnds.net/18/13/1522234577-doctor-who.jpg">
+
+				<h2>Title</h2>
+
+				<p class="published-date">Published 2032</p>
+				<p>Allons-y! It is! It's the city of New New York! Strictly speaking, it's the fifteenth New York since the original, so that makes it New-New-New-New-New-New-New-New-New-New-New-New-New-New-New New York.</p>
+
+				<a href="">Read More</a>
+			</section>
+
+			<h3>Profile</h3>
+
+			<section class="profile">
+
+				<img src="https://www.syfy.com/sites/syfy/files/styles/1200x680/public/2018/01/p02088vk.jpg">
+
+				<h2>David Tennant</h2>
+
+				<p class="email">davidtennant@drwho.com</p>
+				<p class="phone">713-728-2786</p>
+			</section>
+
+		</figure>
+
+		<h4>Notifications</h4>
+
+		<figure class="notification">
+
+			<p class="error-notification"><i class="material-icons">
+			highlight_off
+			</i>This is a notification that something went wrong...</p>
+
+			<p class="warning-notification"><i class="material-icons">
+			report_problem
+			</i>This is a notification that something is about to go wrong...</p>
+
+			<p class="neutral-notification"><i class="material-icons">
+			feedback
+			</i>This is an informative notification.</p>
+
+			<p class="success-notification"><i class="material-icons">
+			check_circle
+			</i>This is a notification that something went right.</p>
+			
 
 		</figure>
 

@@ -391,7 +391,7 @@ form {
 	padding: 1rem;
 }
 
-form label, form input, form textarea, select {
+label, input, textarea, select {
 	display: block;
 }
 
@@ -431,47 +431,148 @@ select {
 	margin: 0 0 1rem 0;
 }
 
-input[disabled] {
+input[disabled], textarea[disabled], select[disabled] {
 	background-color: var(--color-silver);
 	border-color: var(--color-slate);
-	cursor: not-allowed;
-}
-
-textarea[disabled] {
-	background-color: var(--color-silver);
-	border-color: var(--color-slate);
-	cursor: not-allowed;
-}
-
-select[disabled] {
-	background-color: var(--color-silver);
-	border-color: var(--color-slate);
-	color: var(--color-dis-text);
 	cursor: not-allowed;
 }
 
 input[type="submit"] {
-  background: var(--color-navy-light);
-  border: solid var(--color-navy);
-  border-radius: 0.15em;
-  border-width: 0 0 0.15em;
-  color: var(--color-oncolor-text);
-  cursor: pointer;
-  font-size: var(--size-1up);
-  padding: 0.2em 0.4em;
-  transition: all 0.15s ease;
+	background: var(--color-navy-light);
+	border: solid var(--color-navy);
+	border-radius: .15em;
+	border-width: 0 0 .15em;
+	color: var(--color-oncolor-text);
+	cursor: pointer;
+	font-size: var(--size-1up);
+	padding: .2em .4em;
+	transition: all .15s ease;
 }
 
 input[type="submit"]:hover {
-  border-width: 0 0 0.1em;
-  margin-top: 0.05em;
+	background-color: var(--color-navy);
+	margin-top: .05em;
 }
 
 input[type="submit"]:active {
-  border-width: 0 0 0em;
-  margin-top: 0.15em;
+	border-width: 0;
+	margin-top: .15em;
 }
-	
+
+/* ==========================================================================
+ Cards + Notifications
+========================================================================== */
+
+/*Article*/
+.article {
+	display: flex;
+	background-color: var(--color-snow);
+	border-radius: .15em;
+	box-shadow: 3px 3px 10px var(--color-silver);
+	flex-direction: column;
+	justify-content: space-around;
+	max-width: 25rem;
+	padding: 1rem;
+}
+
+.article img {
+	border-radius: .15em;
+	height: auto;
+	object-fit: cover;
+	width: 100%;
+}
+
+.article h2 {
+	margin-bottom: 0;
+}
+
+.published-date {
+	font-size: var(--size-1down);
+	margin-top: 0;
+}
+
+@media (min-width: 600px) {
+	.article {
+		max-width: 20rem;
+	}
+}
+
+/*Profile*/
+.profile {
+	display: flex;
+	background-color: var(--color-snow);
+	border-radius: .15em;
+	box-shadow: 3px 3px 10px var(--color-silver);
+	flex-direction: column;
+	justify-content: space-around;
+	max-width: 20rem;
+	padding: 1rem;
+}
+
+.profile img {
+	border-radius: .15em;
+	height: auto;
+	object-fit: cover;
+	width: 100%;
+}
+
+.profile h2 {
+	margin-top: 0;
+}
+
+.email {
+	margin-bottom: 0;
+}
+
+.phone {
+	margin-top: 0;
+}
+
+@media (min-width: 600px) {
+	.profile {
+		max-width: 15rem;
+	}
+}
+
+/*Notifications*/
+.notification {
+	background-color: var(--color-snow);
+	display: flex;
+	flex-direction: column;
+	max-width: 30rem;
+	padding: 1rem;
+}
+
+.error-notification {
+	background-color: red;
+	color: white;
+	padding: 1rem;
+
+}
+
+.warning-notification {
+	background-color: var(--color-gold-light);
+	padding: 1rem;
+}
+
+.neutral-notification {
+	background-color: var(--color-navy-light);
+	color: white;
+	padding: 1rem;
+}
+
+.success-notification {
+	align-items: baseline;
+	background-color: green;
+	color: white;
+	padding: 1rem;
+}
+
+.material-icons {
+	justify-content: flex-end;
+	margin-top: 10px;
+	margin-right: 5px;
+}
 
 /* ==========================================================================
  Footer Component
