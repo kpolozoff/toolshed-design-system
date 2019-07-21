@@ -18,6 +18,8 @@ html {
 	--color-sec-text:		#3c4858;
 	--color-dis-text:		#3c4858;
 	--color-oncolor-text:	#f9fafc;
+	--color-note-red:		#ff0000;
+	--color-note-green:		#00cc00;
 
 	--box-shadow:			4px 4px rgba(0,0,0, .3);
 	--box-shadow-inset:		10px 10px rgba(0,0,0, .3) inset;
@@ -460,18 +462,16 @@ input[type="submit"]:active {
 }
 
 /* ==========================================================================
- Cards + Notifications
+ Article Cards
 ========================================================================== */
 
-/*Article*/
 .article {
-	display: flex;
 	background-color: var(--color-snow);
 	border-radius: .15em;
 	box-shadow: 3px 3px 10px var(--color-silver);
 	flex-direction: column;
 	justify-content: space-around;
-	max-width: 25rem;
+	max-width: 15rem;
 	padding: 1rem;
 }
 
@@ -479,7 +479,7 @@ input[type="submit"]:active {
 	border-radius: .15em;
 	height: auto;
 	object-fit: cover;
-	width: 100%;
+	max-width: 100%;
 }
 
 .article h2 {
@@ -493,19 +493,21 @@ input[type="submit"]:active {
 
 @media (min-width: 600px) {
 	.article {
-		max-width: 20rem;
+		max-width: 15rem;
 	}
 }
 
-/*Profile*/
+/* ==========================================================================
+ Profile Cards
+========================================================================== */
+
 .profile {
-	display: flex;
 	background-color: var(--color-snow);
 	border-radius: .15em;
 	box-shadow: 3px 3px 10px var(--color-silver);
 	flex-direction: column;
 	justify-content: space-around;
-	max-width: 20rem;
+	max-width: 15rem;
 	padding: 1rem;
 }
 
@@ -513,41 +515,42 @@ input[type="submit"]:active {
 	border-radius: .15em;
 	height: auto;
 	object-fit: cover;
-	width: 100%;
+	max-width: 100%;
 }
 
-.profile h2 {
-	margin-top: 0;
-}
-
-.email {
-	margin-bottom: 0;
-}
-
-.phone {
+.profile h2, .email, .phone {
 	margin-top: 0;
 }
 
 @media (min-width: 600px) {
 	.profile {
-		max-width: 15rem;
+		max-width: 10rem;
+	}
+
+	p {
+		font-size: var(--size-1down);
 	}
 }
+
+/* ==========================================================================
+ Notifications
+========================================================================== */
 
 /*Notifications*/
 .notification {
 	background-color: var(--color-snow);
-	display: flex;
-	flex-direction: column;
 	max-width: 30rem;
 	padding: 1rem;
 }
 
 .error-notification {
-	background-color: red;
+	background-color: var(--color-note-red);
 	color: white;
 	padding: 1rem;
+}
 
+.icon-notification {
+	max-width: 10%;
 }
 
 .warning-notification {
@@ -563,15 +566,115 @@ input[type="submit"]:active {
 
 .success-notification {
 	align-items: baseline;
-	background-color: green;
+	background-color: var(--color-note-green);
 	color: white;
 	padding: 1rem;
 }
 
-.material-icons {
-	justify-content: flex-end;
-	margin-top: 10px;
-	margin-right: 5px;
+@media (min-width: 500px) {
+	.icon-notification {
+		max-width: 5%;
+	}
+}
+
+/* ==========================================================================
+ Article-Card-Grid
+========================================================================== */
+
+.article-grid {
+	margin: 1rem;
+}
+
+.article-card {
+	margin: 0 0 2rem 1rem;
+	max-width: 18rem;
+}
+
+.article-card:first-child {
+	max-width: 100%;
+}
+
+@media (min-width: 500px) {
+	.article-grid {
+		display: grid;
+		grid-gap: 1rem;
+		grid-template-columns: repeat(2, 1fr);
+		margin: 1rem auto 0;
+		max-width: 30rem;
+	}
+
+	.article-card {
+		margin: 0;
+	}
+
+	.article-card:first-child {
+		grid-column-start: 1;
+		grid-column-end: 3;
+	}
+
+	.article-card:hover {
+		transform: scale(1.1);
+		transition: all .5s ease-out;
+	}
+}
+
+@media (min-width: 765px) {
+	.article-grid {
+		display: grid;
+		grid-template-columns: repeat(3, 1fr);
+		max-width: 40rem;
+	}
+
+	.article-card {
+		margin: 0;
+	}
+}
+
+/* ==========================================================================
+ Profile-Card-Grid
+========================================================================== */
+
+.profile-grid {
+	margin: 1rem;
+}
+
+.profile-card {
+	margin-bottom: 1rem;
+}
+
+@media (min-width: 500px) {
+	.profile-grid {
+		display: grid;
+		grid-gap: 1rem;
+		grid-template-columns: repeat(3, 1fr);
+		margin: 1rem;
+	}
+
+	.profile-card h2, .phone {
+		margin: 0;
+		max-width: 60%;
+		font-size: var(--size-1down);
+	}
+
+	.profile-card .email {
+		margin: 0;
+	}
+
+	.profile-card:hover {
+		transform: scale(1.1);
+		transition: all .5s ease-out;
+	}
+}
+
+@media (min-width: 765px) {
+	.profile-grid {
+		margin: 1rem auto 0;
+		max-width: 40rem;
+	}
+
+	.profile-card {
+		max-width: 18rem;
+	}
 }
 
 /* ==========================================================================

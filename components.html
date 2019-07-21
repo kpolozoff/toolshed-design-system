@@ -102,6 +102,7 @@
 				<h4>Text form field</h4>
 
 				<label for="form-text">Text Box</label>
+				<label for="instructions">Write a line of text</label>
 				<input type="text" id="form-text" name="text" placeholder="Write text here">
 
 				<label for="form-text">Text Box Error State</label>
@@ -128,6 +129,7 @@
 				<h4>Select form field</h4>
 
 				<label for="form-select">Select Dropdown</label>
+				<label for="instructions">Select one of the following</label>
 				<select id="form-select" name="select">
 					<option disabled hidden selected>Please Select</option>
 					<option>
@@ -186,12 +188,12 @@
 
 			<section class="article">
 
-				<img src="https://hips.hearstapps.com/digitalspyuk.cdnds.net/18/13/1522234577-doctor-who.jpg">
+				<img src="img/dr-who-article-card.jpg">
 
 				<h2>Title</h2>
 
 				<p class="published-date">Published 2032</p>
-				<p>Allons-y! It is! It's the city of New New York! Strictly speaking, it's the fifteenth New York since the original, so that makes it New-New-New-New-New-New-New-New-New-New-New-New-New-New-New New York.</p>
+				<p>Allons-y! It is! It's the city of New New York! Strictly speaking, it's the fifteenth New York since the original</p>
 
 				<a href="">Read More</a>
 			</section>
@@ -200,12 +202,12 @@
 
 			<section class="profile">
 
-				<img src="https://www.syfy.com/sites/syfy/files/styles/1200x680/public/2018/01/p02088vk.jpg">
+				<img src="img/dr-who-profile-card.jpg">
 
 				<h2>David Tennant</h2>
 
-				<p class="email">davidtennant@drwho.com</p>
-				<p class="phone">713-728-2786</p>
+				<p class="email"><a href="mailto: davidtennant@drwho.com">Send e-mail</a></p>
+				<p class="phone">713.728.2786</p>
 			</section>
 
 		</figure>
@@ -214,21 +216,11 @@
 
 		<figure class="notification">
 
-			<p class="error-notification"><i class="material-icons">
-			highlight_off
-			</i>This is a notification that something went wrong...</p>
-
-			<p class="warning-notification"><i class="material-icons">
-			report_problem
-			</i>This is a notification that something is about to go wrong...</p>
-
-			<p class="neutral-notification"><i class="material-icons">
-			feedback
-			</i>This is an informative notification.</p>
-
-			<p class="success-notification"><i class="material-icons">
-			check_circle
-			</i>This is a notification that something went right.</p>
+			<div class="error-notification"><img src="img/bad.svg" class="icon-notification">
+			This is a notification that something went wrong...</div>
+			<div class="warning-notification"><img src="img/warning.svg" class="icon-notification">This is a notification that something is about to go wrong...</div>
+			<div class="neutral-notification"><img src="img/info.svg" class="icon-notification">This is an informative notification.</div>
+			<div class="success-notification"><img src="img/good.svg" class="icon-notification">This is a notification that something went right.</div>
 			
 
 		</figure>
